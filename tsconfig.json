@@ -1,8 +1,26 @@
 {
 	"compilerOptions": {
+		"noImplicitAny": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"module": "es2015",
 		"target": "es5",
-		"experimentalDecorators": true
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"declaration": true,
+		"sourceMap": true,
+		"moduleResolution": "node",
+		"lib": [
+			"es2015",
+			"dom"
+		]
+	},
+	"include": [
+		"index.ts",
+		"src/*.ts"
+	],
+	"angularCompilerOptions": {
+		"strictMetadataEmit": true,
+		"skipTemplateCodegen": true
 	}
 }
