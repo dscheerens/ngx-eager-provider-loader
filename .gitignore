@@ -1,0 +1,7 @@
+.vscode
+node_modules
+
+*.js
+!webpack.config.js
+*.map
+*.d.ts

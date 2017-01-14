@@ -1,0 +1,40 @@
+{
+	"extends": "tslint:recommended",
+	"rules": {
+		"indent": [true, "tabs"],
+		"interface-name": [true, "never-prefix"],
+		"max-line-length": [true, 140],
+		"member-access": [true, "check-accessor"],
+		"member-ordering": [true, {
+        	"order": [
+				"public-static-field",
+				"protected-static-field",
+				"private-static-field",
+				"public-instance-field",
+				"protected-instance-field",
+				"private-instance-field",
+				"constructor",
+				"public-static-method",
+				"protected-static-method",
+				"private-static-method",
+				"public-instance-method",
+				"protected-instance-method",
+				"private-instance-method"
+			]
+		}],
+		"no-bitwise": true,
+		"object-literal-key-quotes": [true, "as-needed"],
+		"object-literal-sort-keys": false,
+		"quotemark": [true, "single", "avoid-escape"],
+		"switch-default": false,
+	    "trailing-comma": [true, {
+			"multiline": "never",
+			"singleline": "never"
+		}],
+	    "variable-name": [true,
+			"ban-keywords",
+			"check-format",
+			"allow-leading-underscore"
+		]
+	}
+}

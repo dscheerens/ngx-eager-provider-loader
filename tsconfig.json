@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"target": "es5",
+		"experimentalDecorators": true
+	}
+}
