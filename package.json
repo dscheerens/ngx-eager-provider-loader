@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "ngc"
+    "build": "ngc",
+    "bundle": "rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -33,9 +34,10 @@
     "@angular/compiler": "2.4.3",
     "@angular/compiler-cli": "2.4.3",
     "@angular/core": "2.4.3",
+    "rollup": "^0.41.4",
     "rxjs": "5.0.3",
     "tslint": "4.3.1",
-    "typescript": "2.1.4",
+    "typescript": "2.0.10",
     "zone.js": "0.7.4"
   }
 }

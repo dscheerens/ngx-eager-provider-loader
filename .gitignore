@@ -2,7 +2,8 @@
 node_modules
 
 *.js
-!webpack.config.js
+!rollup.config.js
 *.map
 *.d.ts
 *.metadata.json
+bundles

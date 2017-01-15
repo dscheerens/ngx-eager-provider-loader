@@ -16,9 +16,8 @@
 			"dom"
 		]
 	},
-	"include": [
-		"index.ts",
-		"src/*.ts"
+	"files": [
+		"index.ts"
 	],
 	"angularCompilerOptions": {
 		"strictMetadataEmit": true,
