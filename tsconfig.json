@@ -3,6 +3,7 @@
 		"noImplicitAny": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"newLine": "LF",
 		"module": "es2015",
 		"target": "es5",
 		"emitDecoratorMetadata": true,
