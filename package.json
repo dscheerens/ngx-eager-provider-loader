@@ -2,6 +2,7 @@
   "name": "angular-eager-provider-loader",
   "version": "0.0.1",
   "description": "Eager provider / service loader for Angular 2+",
+  "homepage": "https://github.com/dscheerens/angular-eager-provider-loader",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,6 +17,7 @@
     "angular2",
     "ng2",
     "eager",
+    "gready",
     "loading",
     "loader",
     "load",
