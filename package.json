@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Eager provider / service loader for Angular 2+",
   "homepage": "https://github.com/dscheerens/angular-eager-provider-loader",
-  "main": "index.js",
+  "main": "bundles/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint index.ts src/*.ts",
