@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "ngc",
+    "lint": "tslint index.ts src/*.ts",
+    "compile": "ngc",
+    "build": "npm -s run lint && npm -s run compile",
     "bundle": "rollup -c rollup.config.js"
   },
   "repository": {
