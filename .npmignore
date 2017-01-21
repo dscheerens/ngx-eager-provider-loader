@@ -1,6 +1,9 @@
 .vscode
 node_modules
+coverage
 
 rollup.config.js
+karma.conf.js
 *.ts
 !*.d.ts
+src/**/*.spec.*

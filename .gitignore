@@ -1,8 +1,10 @@
 .vscode
 node_modules
+coverage
 
 *.js
 !rollup.config.js
+!karma.conf.js
 *.map
 *.d.ts
 *.metadata.json
