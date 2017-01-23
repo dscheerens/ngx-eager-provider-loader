@@ -9,7 +9,7 @@
         "outDir": "tmp/test",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "inlineSourceMap": true,
+        "inlineSourceMap": false,
         "moduleResolution": "node",
         "lib": [
             "es2015",

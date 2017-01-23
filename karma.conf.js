@@ -25,7 +25,15 @@ module.exports = (config) => {
             'tmp/test/test-root.umd.js'
         ],
 
-        reporters: [ 'mocha' ],
+        reporters: [ 'mocha', 'coverage' ],
+
+        coverageReporter: {
+            type: 'text-summary'
+        },
+
+        preprocessors: {
+            'tmp/test/test-root.umd.js': ['coverage']
+        },
 
         colors: true,
 

@@ -1,6 +1,7 @@
 .vscode
 node_modules
 tmp
+coverage
 
 *.js
 !rollup.config.js

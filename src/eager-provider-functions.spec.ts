@@ -12,6 +12,10 @@ describe('eager provider registration functions', () => {
 
         });
 
+        it('reports errors', () => {
+            expect('fail').toBe('ok');
+        });
+
     });
 
 });

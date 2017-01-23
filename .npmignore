@@ -1,6 +1,7 @@
 .vscode
 node_modules
 tmp
+coverage
 
 rollup.config.js
 karma.conf.js
