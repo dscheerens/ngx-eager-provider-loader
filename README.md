@@ -1,3 +1,5 @@
+[![NPM version](https://img.shields.io/npm/v/angular-eager-provider-loader.svg)](https://www.npmjs.com/package/angular-eager-provider-loader)
+
 # Eager provider / service loader for Angular 2+
 
 This module for Angular 2+ enables your application to eager load providers if necessary.
