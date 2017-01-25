@@ -38,7 +38,7 @@ module.exports = (config) => {
             'tmp/test/test-root.umd.js': ['coverage']
         },
 
-        colors: false,
+        colors: true,
 
         logLevel: config.LOG_INFO,
 

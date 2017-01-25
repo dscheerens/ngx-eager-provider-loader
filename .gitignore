@@ -5,6 +5,7 @@ coverage
 
 *.js
 !rollup.config.js
+!rollup-test.config.js
 !karma.conf.js
 !karma.init.js
 *.map
