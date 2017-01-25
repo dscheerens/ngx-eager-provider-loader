@@ -5,6 +5,7 @@ coverage
 
 rollup.config.js
 karma.conf.js
+karma.init.js
 *.ts
 !*.d.ts
 src/**/*.spec.*

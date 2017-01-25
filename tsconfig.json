@@ -19,6 +19,9 @@
     "files": [
         "index.ts"
     ],
+    "include": [
+        "src/**/*.ts"
+    ],
     "angularCompilerOptions": {
         "strictMetadataEmit": true,
         "skipTemplateCodegen": true

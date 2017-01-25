@@ -10,6 +10,7 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "inlineSourceMap": false,
+        "removeComments": true,
         "moduleResolution": "node",
         "lib": [
             "es2015",

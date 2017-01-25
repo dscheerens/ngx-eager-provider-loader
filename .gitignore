@@ -6,6 +6,7 @@ coverage
 *.js
 !rollup.config.js
 !karma.conf.js
+!karma.init.js
 *.map
 *.d.ts
 *.metadata.json

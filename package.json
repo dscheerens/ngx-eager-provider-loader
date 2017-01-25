@@ -9,7 +9,7 @@
     "test": "npm -s run lint && npm -s run build.test && karma start",
     "lint": "tslint --exclude **/*.d.ts index.ts src/*.ts",
     "build": "npm -s run lint && ngc && rollup -c rollup.config.js",
-    "build.test": "rimraf tmp/test && ngc -p tsconfig-test.json && rollup -m inline -c rollup-test.config.js"
+    "build.test": "rimraf tmp/test && ngc -p tsconfig-test.json && rollup -c rollup-test.config.js"
   },
   "repository": {
     "type": "git",
@@ -46,6 +46,7 @@
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-mocha-reporter": "^2.2.2",
+    "reflect-metadata": "^0.1.9",
     "rimraf": "^2.5.4",
     "rollup": "^0.41.4",
     "rxjs": "^5.0.3",

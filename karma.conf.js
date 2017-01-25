@@ -5,6 +5,8 @@ module.exports = (config) => {
         frameworks: [ 'jasmine' ],
 
         files: [
+            // reflect-metadata
+            'node_modules/reflect-metadata/Reflect.js',
 
             // zone.js
             'node_modules/zone.js/dist/zone.js',
@@ -19,9 +21,10 @@ module.exports = (config) => {
             'node_modules/rxjs/bundles/Rx.js',
 
             // Angular
-            ...getAngularFiles(['core']),
+            ...getAngularFiles(['core', 'common', 'compiler', 'platform-browser', 'platform-browser-dynamic']),
 
             // Application
+            'karma.init.js',
             'tmp/test/test-root.umd.js'
         ],
 
@@ -35,7 +38,7 @@ module.exports = (config) => {
             'tmp/test/test-root.umd.js': ['coverage']
         },
 
-        colors: true,
+        colors: false,
 
         logLevel: config.LOG_INFO,
 

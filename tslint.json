@@ -3,6 +3,7 @@
     "rules": {
         "interface-name": [true, "never-prefix"],
         "max-line-length": [true, 140],
+        "max-classes-per-file": false,
         "member-access": [true, "check-accessor"],
         "member-ordering": [true, {
             "order": [
