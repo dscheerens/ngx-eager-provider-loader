@@ -5,11 +5,11 @@
   "homepage": "https://github.com/dscheerens/angular-eager-provider-loader",
   "main": "bundles/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "tslint index.ts src/*.ts",
-    "compile": "ngc",
-    "build": "npm -s run lint && npm -s run compile",
-    "bundle": "rollup -c rollup.config.js"
+    "clean": "rimraf tmp bundles src/**/*.d.ts src/**/*.js src/**/*.map src/**/*.metadata.json index.d.ts index.js index.js.map index.metadata.json",
+    "test": "npm -s run lint && npm -s run build.test && karma start",
+    "lint": "tslint --exclude **/*.d.ts index.ts src/*.ts",
+    "build": "npm -s run lint && ngc && rollup -c rollup.config.js",
+    "build.test": "rimraf tmp/test && ngc -p tsconfig-test.json && rollup -c rollup-test.config.js"
   },
   "repository": {
     "type": "git",
@@ -33,13 +33,25 @@
     "@angular/core": "^2.0.0"
   },
   "devDependencies": {
-    "@angular/compiler": "2.4.3",
-    "@angular/compiler-cli": "2.4.3",
-    "@angular/core": "2.4.3",
+    "@angular/common": "^2.4.4",
+    "@angular/compiler": "^2.4.4",
+    "@angular/compiler-cli": "^2.4.4",
+    "@angular/core": "^2.4.4",
+    "@angular/platform-browser": "^2.4.4",
+    "@angular/platform-browser-dynamic": "^2.4.4",
+    "@types/jasmine": "^2.5.41",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha-reporter": "^2.2.2",
+    "reflect-metadata": "^0.1.9",
+    "rimraf": "^2.5.4",
     "rollup": "^0.41.4",
-    "rxjs": "5.0.3",
-    "tslint": "4.3.1",
-    "typescript": "2.0.10",
-    "zone.js": "0.7.4"
+    "rxjs": "^5.0.3",
+    "tslint": "^4.3.1",
+    "typescript": "~2.0.10",
+    "zone.js": "^0.7.6"
   }
 }

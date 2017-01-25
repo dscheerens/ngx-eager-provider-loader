@@ -16,5 +16,5 @@ export function eagerProvider(provider: Provider): Provider[] {
 }
 
 export function eagerProviders(...providers: Provider[]): Provider[] {
-    return providers.map(eagerProvider).reduce((a, b) => a.concat(b));
+    return providers.map(eagerProvider).reduce((a, b) => a.concat(b), []);
 }

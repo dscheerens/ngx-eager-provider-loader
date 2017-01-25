@@ -6,19 +6,17 @@
         "newLine": "LF",
         "module": "es2015",
         "target": "es5",
+        "outDir": "tmp/test",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "declaration": true,
-        "sourceMap": true,
+        "inlineSourceMap": false,
+        "removeComments": true,
         "moduleResolution": "node",
         "lib": [
             "es2015",
             "dom"
         ]
     },
-    "files": [
-        "index.ts"
-    ],
     "include": [
         "src/**/*.ts"
     ],
