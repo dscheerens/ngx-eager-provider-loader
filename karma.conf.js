@@ -42,7 +42,14 @@ module.exports = (config) => {
 
         logLevel: config.LOG_INFO,
 
-        browsers: [ 'Chrome' ],
+        browsers: process.env.TRAVIS ? [ 'ChromeTravisCi' ] : [ 'Chrome' ],
+
+        customLaunchers: {
+            ChromeTravisCi: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
 
         autoWatch: false,
 
