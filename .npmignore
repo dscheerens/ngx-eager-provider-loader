@@ -3,9 +3,17 @@ node_modules
 tmp
 coverage
 
-rollup.config.js
-karma.conf.js
-karma.init.js
 *.ts
 !*.d.ts
 src/**/*.spec.*
+
+.editorconfig
+.travis.yml
+karma.conf.js
+karma.init.js
+rollup.config.js
+rollup-test.config.js
+tsconfig.json
+tsconfig-test.json
+tslint.json
+yarn.lock

@@ -9,5 +9,7 @@ trim_trailing_whitespace = true
 end_of_line = lf
 
 [package.json]
-indent_style = space
+indent_size = 2
+
+[.travis.yml]
 indent_size = 2
