@@ -40,6 +40,7 @@
     "@angular/platform-browser": "^2.4.4",
     "@angular/platform-browser-dynamic": "^2.4.4",
     "@types/jasmine": "^2.5.41",
+    "core-js": "^2.4.1",
     "jasmine-core": "^2.5.2",
     "karma": "^1.4.0",
     "karma-chrome-launcher": "^2.0.0",

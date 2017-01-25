@@ -5,6 +5,9 @@ module.exports = (config) => {
         frameworks: [ 'jasmine' ],
 
         files: [
+            // core-js
+            'node_modules/core-js/client/shim.min.js',
+
             // reflect-metadata
             'node_modules/reflect-metadata/Reflect.js',
 
