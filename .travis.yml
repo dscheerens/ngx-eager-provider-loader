@@ -9,6 +9,7 @@ cache:
     - node_modules
 
 before_install:
+  - export CHROME_BIN=chromium-browser
   - npm install -g yarn
 
 install:
