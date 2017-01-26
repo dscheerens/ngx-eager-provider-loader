@@ -1,6 +1,6 @@
 {
   "name": "angular-eager-provider-loader",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Eager provider / service loader for Angular 2+",
   "homepage": "https://github.com/dscheerens/angular-eager-provider-loader",
   "main": "bundles/index.js",
