@@ -102,7 +102,7 @@ import {
         eagerProviderRegistration(providerFromOtherModule),
 
         // Defines the provider `RouteLogger` and marks it for eager loading. Note that the expression
-        // below is equivalent to: ...[RouterLogger, eagerProviderRegistration(RouterLogger)]
+        // below is equivalent to: ...[RouteLogger, eagerProviderRegistration(RouteLogger)]
         ...eagerProvider(RouteLogger),
 
         // Defines three providers and marks them for eager loading.
