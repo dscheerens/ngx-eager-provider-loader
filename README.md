@@ -116,21 +116,58 @@ import {
 export class AppModule { /* ... */ }
 ```
 
-## Limitations
+### Ahead-of-Time (AoT) compilation support
 
-Providers that are defined in modules that are lazy loaded by themselves cannot be loaded eagerly with the current
-version of this package.
-If you mark any of such providers for eager loading within the lazy loaded module itself it will not have any effect.
-However, if you mark a provider, defined in a lazy loaded module, for eager loading from within another module that is
-loaded when the application is bootstrapped, then you will receive a dependency injection error.
 
-I will look for a method to lift this restriction, such that future versions of the `angular-eager-provider-loader`
-package can support lazy loaded modules.
-However, if you ever run into this limitation, ask yourself whether it actually makes sense that the provider should
-only be loaded when the module itself is loaded.
+Unfortunately when using AoT you cannot use function calls for the `@NgModule` metadata, hence it is not possible to use
+the `eagerProvider*` functions to generate the eager provider registrations.
+This means you'll have to define these registration entries manually in the providers list of your module.
+To do so, first import the `EAGER_PROVIDER` token.
+With this token you can register a provider for eager loading.
+This is illustrated for the `UserService` in the following example:
+
+```TypeScript
+import { EagerProviderLoaderModule, EAGER_PROVIDER } from 'angular-eager-provider-loader';
+
+import { UserService } from './shared/user.service';
+
+@NgModule({
+	imports: [ EagerProviderLoaderModule ],
+	providers: [
+		UserService,
+		{ provide: EAGER_PROVIDER, useValue: UserService, multi: true }
+	]
+})
+export class AppModule { /* ... */ }
+```
+
+Note that you have to define the provider twice: once as you would normally define it and once as the value of multi
+provider for the `EAGER_PROVIDER` token.
+If you omit the normal provider definition, then Angular will complain about not having a provider for whatever value
+you specified in the `useValue` property.
+It is important to use the `useValue` property and not the `useClass` property, since this will result in a runtime DI
+error, which the eager provider loader cannot prevent.
+Also make sure to always set the `multi` property to `true`.
+
+### Lazy module loading support
+
+The eager provider loader package has support for lazy loaded modules.
+However, before using eager provider loading for lazy loaded modules ask yourself whether it actually makes sense that
+the provider should only be loaded when the module itself is loaded.
 In most cases I expect that the provider must be loaded on application startup anyway.
 If so, you can simply move the eager loading registration to the module that is being used to bootstrap the application
 (or to another imported module).
+
+If you still feel that you need eager provider loading for a lazy loaded module, then you can use it in the same way as
+you would for modules that get loaded on application startup.
+Just don't forget to import the `EagerProviderLoaderModule` within these lazy loaded modules.
+
+Note that there is a small difference for eager loaded providers compared to normal providers which are defined in lazy
+loaded modules.
+Normal providers for lazy loaded modules might be instantiated multiple times by Angular itself, e.g. when changing
+routes back and forth to lazy loaded routes.
+The eager provider loader, however, makes sure that providers marked for eager loading within these lazy loaded modules
+will only be instantiated once.
 
 ## Troubleshooting
 
@@ -138,6 +175,11 @@ In case your service does not get loaded on application startup, check the follo
 
 * You have marked the provider for eager loading with one of the following functions: `eagerProviderRegistration`,
 `eagerProvider`, or `eagerProviders`.
-* The provider must not be marked for eager loading in a module that is lazy loaded.
-* At least one of the modules that gets loaded on application startup adds the `EagerProviderLoaderModule` to the import
+When using AoT, instead of these functions, add a multi provider for the `EAGER_PROVIDER` token.
+* If you manually mark a provider for eager loading, either using the `eagerProviderRegistration` function or the
+`EAGER_PROVIDER` token, make sure that provider itself is also added to the providers list of the module (or imported
+modules).
+* The provider is marked for eager loading in a lazy loaded module that simply hasn't been loaded yet.
+* At least one of the modules that gets loaded on application startup adds `EagerProviderLoaderModule` to the import
 list.
+If you use lazy loaded modules, then those also need to import `EagerProviderLoaderModule`.
