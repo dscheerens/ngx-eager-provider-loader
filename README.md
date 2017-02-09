@@ -9,7 +9,7 @@ While this is actually a good thing and is desirable for the majority of the cas
 reason to have your provider(s) loaded directly.
 This is the case in particular for providers that play an active role in your application, but are never referenced by
 other components or providers.
-For more information when this is useful and the rationale for this package see the following article: _(coming soon)_
+For more information when this is useful and the rationale for this package see the following article: [Eager loading in Angular 2](https://github.com/dscheerens/angular-eager-provider-loader/blob/master/eager-loading-in-angular-2.md)
 
 ## Installation
 
