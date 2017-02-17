@@ -9,6 +9,7 @@ src/**/*.spec.*
 
 .editorconfig
 .travis.yml
+eager-loading-in-angular-2.md
 karma.conf.js
 karma.init.js
 rollup.config.js
