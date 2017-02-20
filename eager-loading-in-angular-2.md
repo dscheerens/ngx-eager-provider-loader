@@ -1,8 +1,8 @@
 Eager loading in Angular 2+
 ===========================
 
-A nice and much talked about feature of Angular 2 is support for lazy loading.
-The [official Angular documentation website](https://angular.io/docs/ts/latest/guide/router.html#asynchronous-routing) does a great job in describing it's purpose.
+A nice and much talked about feature of Angular 2 is its support for lazy loading.
+The [official Angular documentation website](https://angular.io/docs/ts/latest/guide/router.html#asynchronous-routing) does a great job in describing its purpose.
 In short: it allows you to break up your Angular application in smaller modules that can be loaded independently and only when necessary.
 This can greatly speedup application load times.
 So if lazy loading is such a nice thing, why would one want to do the opposite: *eager loading*?
@@ -11,7 +11,7 @@ Lazy loading vs Eager loading
 -----------------------------
 
 To answer the question above, first you need to understand that Angular actually has two forms of lazy loading.
-The first form is that of lazy module loading as briefly described in the introduction.
+The first form is that of lazy module loading as briefly described above.
 There is, however, a second form that all Angular applications are doing already: lazy loading of providers.
 You might not even be aware of this, since this happens more under the surface.
 In fact it is Angular's dependency injection (DI) framework that provides this feature.
@@ -30,7 +30,7 @@ Since lazy loading is desirable for almost all cases, it is nice that this is th
 However, there are those rare cases in which it actually becomes a problem.
 
 This is something I've encountered several times while working on an application for a client.
-For example: our team needed to add analytics and one of the events that was tracked were route changes.
+For example: our team needed to add analytics and one of the events tracked was route changes.
 We first made a service for publishing the analytics events.
 Then we had to connect to the Angular router and publish the events to the analytics service.
 Initially our naive solution was to inject both the Angular router and analytics service in the `AppComponent`, which is the bootstrap component for the application.
@@ -64,12 +64,12 @@ Eager loading through module classes
 ------------------------------------
 
 So the problem is, given some provider, how can we make sure Angular loads it in the absence of services or components that depend on it?
-Due the the lazy loading behavior of Angular's DI framework, you have to put in some extra effort to make Angular load the provider.
+Due to the lazy loading behavior of Angular's DI framework, you have to put in some extra effort to make Angular load the provider.
 
 Luckily the solution to the problem is quite simple: just make it a dependency!
 The next problem then becomes to decide where to put this dependency: there might not be an obvious candidate.
 One thing you could do is make it a dependency of the component that gets bootstrapped, e.g. in the `AppComponent` of the example shown in the previous section.
-That, however, is still a bit messy and it turns out there actually a nicer solution: inject it into a module class.
+That, however, is still a bit messy and it turns out there is actually a nicer solution: inject it into a module class.
 This is possible since Angular will instantiate module classes and uses it's DI framework to do so, allowing you to define dependencies in the constructor of your module.
 Here's an example:
 
@@ -117,17 +117,17 @@ Should you ever need eager loading in your application, then this is the way to 
 Making things more convenient
 -----------------------------
 
-The example code above illustrates that you need to do 3 things to get providers loaded eagerly on application startup:
+The example code above illustrates that you must do three things to get providers loaded eagerly on application startup:
 
-* They need to be decorated with the `@Injectable` decorator.
-* They need to be listed in the providers list of a module.
-* You have to add them as parameters to the constructor of the module.
+* You must decorate them with the `@Injectable` decorator.
+* You must list them in the providers list of a module.
+* You must add them as parameters to the constructor of the module.
 
 The first two are actually required for every provider, regardless of whether you need to have eager loading for that provider or not.
 This is just a requirement to make use of Angular's DI framework.
 It would have been nice though if the last step could be omitted, so you only need to reference the provider just once in your module.
 Maybe the Angular team could make this possible in the future by extending the `@Injectable` decorator to accept some metadata object with an option to mark it for eager loading.
-Like so for example:
+Like this, for example:
 
 ```TypeScript
 @Injectable({ load: LoadingStrategy.Eager })
@@ -136,7 +136,7 @@ class RouteEventPublisher {
 }
 ```
 
-For now, however, we have to make due without such a feature.
+For now, however, we have to do without such a feature.
 I therefore created a simple Angular module to make it more convenient to define eager loaded providers.
 Combined with the ES6 [spread operator](https://developer.mozilla.org/nl/docs/Web/JavaScript/Reference/Operators/Spread_operator) this module makes it very easy to use eager loading.
 Here's the same solution using that module:
@@ -151,8 +151,8 @@ class AppModule {
 }
 ```
 
-By importing `EagerProviderLoaderModule` and declaring the provider via the `eagerProvider` function it is no longer necessary to add a constructor to your module in which you have to list all providers that need to be loaded on application startup.
-Instead the `EagerProviderLoaderModule` will take care of this.
+By importing `EagerProviderLoaderModule` and declaring the provider via the `eagerProvider` function, it is no longer necessary to add a constructor to your module in which you must list all providers that need to be loaded on application startup.
+Instead, the `EagerProviderLoaderModule` will take care of this.
 The added benefit of the `EagerProviderLoaderModule` is that it also ensures that the provider is only instantiated once when used in combination with lazy module loading.
 Lazy module loading can cause problems if you use the constructor method that was outlined in the previous section, since it then loads the provider for every visit of the route that is associated with the lazy loaded module.
 
@@ -164,12 +164,12 @@ Summary
 
 Sometimes the lazy loading behavior of Angular's dependency injection framework can work against you.
 From my own experience, I found several cases where the opposite of lazy loading was required: *eager loading*.
-A concrete example, discussed earlier in the article, is that of publishing route change events to an analytics service.
+A concrete example, discussed earlier in this article, is that of publishing route change events to an analytics service.
 The classes I've encountered so far that required eager loading had the following traits in common:
 
 * None of these classes plays the role of a conventional service, since they are not used as a dependency by other services or components.
-* Instead they play a more active role in 'driving' a certain kind of (background) behavior of the application.
-* Each one has one or more dependencies to other services, which justifies the use of a DI framework instead of manually instantiating the classes.
+* These classes play a more active role in 'driving' a certain kind of (background) behavior of the application.
+* Each class has one or more dependencies to other services, which justifies the use of a DI framework instead of manually instantiating the classes.
 
 Because of the first trait, lazy loading prevents such classes from being loaded.
 The trick to solve this problem is to force them to be loaded by making these classes a dependency of another class that gets loaded via the DI framework on application startup.
