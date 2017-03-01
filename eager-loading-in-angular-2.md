@@ -57,7 +57,7 @@ Since they all had dependencies to other services, it made sense to use Angular'
 However, simply adding them to the provider list of the `@NgModule` classes didn't work.
 This was caused by the fact they were not used as a dependency by other services or components.
 Hence the lazy loading feature of the DI framework was preventing them from being instantiated.
-So instead of being lazy loaded, these providers needed be loaded on application startup immediately, or to put it in other words: they required *eager loading*.
+So instead of being lazy loaded, these providers needed to be loaded on application startup immediately, or to put it in other words: they required *eager loading*.
 In the next section, we'll look at how this can be accomplished with Angular 2 (and above).
 
 Eager loading through module classes
