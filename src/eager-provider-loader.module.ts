@@ -1,6 +1,7 @@
-import { Injector, NgModule } from '@angular/core';
+import { Inject, Injector, NgModule } from '@angular/core';
 
 import { EagerProviderLoaderService } from './eager-provider-loader.service';
+import { EAGER_PROVIDER } from './eager-provider.token';
 
 function getEagerProviderLoaderService(injector: Injector): EagerProviderLoaderService {
     // Construct the injector stack from the current injector to the root injector.
@@ -18,12 +19,21 @@ function getEagerProviderLoaderService(injector: Injector): EagerProviderLoaderS
     return loaderService;
 }
 
+function swallowUnused(...anything: any[]) {
+    if (!anything) {
+        anything = [];
+    }
+}
+
 @NgModule({
     providers: [EagerProviderLoaderService]
 })
 export class EagerProviderLoaderModule {
 
-    constructor(injector: Injector) {
+    constructor(injector: Injector, @Inject(EAGER_PROVIDER) eagerProviderTokens: any[]) {
+
+        swallowUnused(eagerProviderTokens);
+
         // Retrieve the eager provider loader service that is closest to the root injector.
         const eagerProviderLoaderService = getEagerProviderLoaderService(injector);
 

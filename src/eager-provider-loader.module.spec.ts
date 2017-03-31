@@ -48,8 +48,8 @@ describe('eager provider loader module', () => {
 
     it('never loads a provider more than once', inject([Injector, TestModuleA, TestModuleB], (injector: Injector) => {
 
-        const loader1 = new EagerProviderLoaderModule(injector);
-        const loader2 = new EagerProviderLoaderModule(injector);
+        const loader1 = new EagerProviderLoaderModule(injector, []);
+        const loader2 = new EagerProviderLoaderModule(injector, []);
 
         expect(loader1).toBeDefined();
         expect(loader2).toBeDefined();
