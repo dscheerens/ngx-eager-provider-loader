@@ -19,12 +19,6 @@ function getEagerProviderLoaderService(injector: Injector): EagerProviderLoaderS
     return loaderService;
 }
 
-function swallowUnused(...anything: any[]) {
-    if (!anything) {
-        anything = [];
-    }
-}
-
 @NgModule({
     providers: [EagerProviderLoaderService]
 })
@@ -32,7 +26,9 @@ export class EagerProviderLoaderModule {
 
     constructor(injector: Injector, @Inject(EAGER_PROVIDER) eagerProviderTokens: any[]) {
 
-        swallowUnused(eagerProviderTokens);
+        if (!eagerProviderTokens) {
+            eagerProviderTokens = [];
+        }
 
         // Retrieve the eager provider loader service that is closest to the root injector.
         const eagerProviderLoaderService = getEagerProviderLoaderService(injector);

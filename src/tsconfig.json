@@ -6,19 +6,22 @@
         "newLine": "LF",
         "module": "es2015",
         "target": "es5",
-        "outDir": "tmp/test",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "inlineSourceMap": false,
-        "removeComments": true,
+        "noEmitHelpers": true,
+        "declaration": true,
+        "sourceMap": true,
         "moduleResolution": "node",
         "lib": [
             "es2015",
             "dom"
         ]
     },
+    "files": [
+        "index.ts"
+    ],
     "include": [
-        "src/**/*.ts"
+        "**/*.ts"
     ],
     "angularCompilerOptions": {
         "strictMetadataEmit": true,
