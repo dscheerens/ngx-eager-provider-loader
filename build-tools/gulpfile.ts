@@ -1,10 +1,10 @@
 import { AngularCompilerOptions, CodeGenerator, main as ngc, NgcCliOptions } from '@angular/compiler-cli';
+import * as ciInfo from 'ci-info';
 import { writeFile } from 'fs';
 import * as gulp from 'gulp';
 import * as inlineTemplate from 'gulp-inline-ng2-template';
 import * as jsonTransform from 'gulp-json-transform';
 import tslint from 'gulp-tslint';
-import * as isCi from 'is-ci';
 import * as nodeSass from 'node-sass';
 import * as rimraf from 'rimraf';
 import { rollup } from 'rollup';
@@ -235,11 +235,11 @@ gulp.task('create.systemjs-config.test', (done: DoneCallback) => {
 gulp.task('run.karma', (done: DoneCallback) => {
     const karmaOptions: ExtendedKarmaConfig = {
         frameworks: ['jasmine'],
-        browsers: isCi ? ['PhantomJS'] : ['ChromeBackground'],
+        browsers: ciInfo.TRAVIS ? ['ChromeTravisCi'] : ['Chrome'],
         customLaunchers: {
-            ChromeBackground: {
+            ChromeTravisCi: {
                 base: 'Chrome',
-                flags: ['--window-position=-9999,0']
+                flags: ['--no-sandbox']
             }
         },
         singleRun: true,
