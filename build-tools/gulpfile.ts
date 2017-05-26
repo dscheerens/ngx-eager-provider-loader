@@ -17,6 +17,7 @@ import { ExtendedKarmaConfig, karmaConstants } from './util/karma-config.model';
 import { mergeSystemjsModuleConfig } from './util/project-config.model';
 import { globalsResolverToExternalResolver } from './util/rollupjs-util';
 import { runKarma } from './util/run-karma';
+import { splitNpmPackageName } from './util/split-npm-package-name';
 import { TYPESCRIPT_HELPER_FUNCTIONS as typescriptHelperFunctions } from './util/ts-helpers';
 
 gulp.task('default', ['build.dist']);
@@ -110,6 +111,9 @@ gulp.task('ngc.dist.es5', ngcTask(projectConfig.distPath, 'es5'));
 gulp.task('ngc.dist.es6', ngcTask(projectConfig.distPath, 'es6'));
 
 function rollupTask(moduleFormat: 'es' | 'umd', filenameInfix?: string, intro?: string) {
+
+    const { scope, moduleName } = splitNpmPackageName(projectConfig.moduleName);
+
     return (done: DoneCallback) => {
         const rollupOptions = {
             entry: `${projectConfig.distPath}/index.js`,
@@ -117,8 +121,8 @@ function rollupTask(moduleFormat: 'es' | 'umd', filenameInfix?: string, intro?: 
         };
         const bundleOptions = {
             format: moduleFormat,
-            dest: `${projectConfig.distPath}/bundles/${projectConfig.moduleName}${filenameInfix || ''}.js`,
-            moduleName: 'ns.' + toLowerCamelCase(projectConfig.moduleName),
+            dest: `${projectConfig.distPath}/bundles/${moduleName}${filenameInfix || ''}.js`,
+            moduleName: (scope ? toLowerCamelCase(scope) + '.' : '') + toLowerCamelCase(moduleName),
             globals: projectConfig.rollupGlobals,
             intro
         };

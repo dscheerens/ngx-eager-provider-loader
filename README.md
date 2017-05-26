@@ -20,8 +20,8 @@ command:
 npm install angular-eager-provider-loader --save
 ```
 
-When installed, this package provides an UMD bundle (`bundles/index.js`), that can be referenced from the module loader
-used by your application.
+When installed, this package provides an UMD bundle (`bundles/angular-eager-provider-loader.umd.js`), that can be
+referenced from the module loader used by your application.
 For example when using [SystemJS](https://github.com/systemjs/systemjs/), add the following entries to the config file:
 
 To the `map` option:
@@ -32,10 +32,15 @@ To the `map` option:
 To the `packages` option:
 ```
 'angular-eager-provider-loader': {
-    main: 'index.js',
+    main: 'angular-eager-provider-loader.umd.js',
     defaultExtension: 'js'
 }
 ```
+
+In addition to the UMD bundle, the package is also provided in ESM module format.
+This format is more convenient to use when you want to make use of tree shaking.
+The ESM bundle is provided in both ES5 (`bundles/angular-eager-provider-loader.es5.js`) and ES6
+(`bundles/angular-eager-provider-loader.js`).
 
 ## Usage
 
