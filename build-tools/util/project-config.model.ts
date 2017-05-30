@@ -40,6 +40,9 @@ export interface ProjectConfigOptions {
 
     /** Configuration (systemjs, karma, rollup) for additional dependencies. */
     modules?: ModuleConfig[];
+
+    /** Glob patterns for static files that need to be copied to the distribution build folder. */
+    staticFiles?: ((basePath: string) => string)[];
 }
 
 export class ProjectConfig implements ProjectConfigOptions {
@@ -51,6 +54,7 @@ export class ProjectConfig implements ProjectConfigOptions {
     public testBuildPath: string;
     public systemjsConfigFile: string;
     public modules: ModuleConfig[];
+    public staticFiles: ((basePath: string) => string)[];
 
     constructor(options: ProjectConfigOptions) {
         this.moduleName = options.moduleName;
@@ -61,6 +65,7 @@ export class ProjectConfig implements ProjectConfigOptions {
         this.testBuildPath = options.testBuildPath;
         this.systemjsConfigFile = options.systemjsConfigFile;
         this.modules = options.modules;
+        this.staticFiles = options.staticFiles;
     }
 
     public merge(options: ProjectConfigOptions): ProjectConfig {
@@ -72,7 +77,8 @@ export class ProjectConfig implements ProjectConfigOptions {
             distPath: options.distPath || this.distPath,
             testBuildPath: options.testBuildPath || this.testBuildPath,
             systemjsConfigFile: options.systemjsConfigFile || this.systemjsConfigFile,
-            modules: mergeModuleConfigs(this.modules, options.modules)
+            modules: mergeModuleConfigs(this.modules, options.modules),
+            staticFiles: (this.staticFiles || []).concat(options.staticFiles || [])
         });
     }
 

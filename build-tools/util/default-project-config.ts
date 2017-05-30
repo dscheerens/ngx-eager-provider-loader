@@ -60,6 +60,9 @@ export const DEFAULT_PROJECT_CONFIG = new ProjectConfig({
         angularModule('platform-browser', ['animations', 'testing']),
         angularModule('platform-browser-dynamic', ['testing']),
         angularModule('router', ['testing'])
+    ],
+    staticFiles: [
+        (path: string) => `${path}/package.json`
     ]
 });
 

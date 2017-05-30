@@ -31,7 +31,7 @@ gulp.task('build.dist', (done: DoneCallback) => runSequence(
     'ngc+rollup.dist.es5',
     'patch-metadata.dist',
     'clean.dist.post',
-    'copy.package.json.dist',
+    'copy.static.dist',
     done
 ));
 
@@ -176,8 +176,9 @@ gulp.task('clean.dist.post', (done: DoneCallback) => {
             (error?: string) => error ? executeNext(error) : rimraf(pattern, executeNext), done)();
 });
 
-gulp.task('copy.package.json.dist', (done: DoneCallback) => {
-    gulp.src(`${projectConfig.basePath}/package.json`)
+gulp.task('copy.static.dist', (done: DoneCallback) => {
+    const patterns = projectConfig.staticFiles.map((staticFile) => staticFile(projectConfig.basePath));
+    gulp.src(patterns)
         .pipe(gulp.dest(projectConfig.distPath))
         .on('end', () => done());
 });
