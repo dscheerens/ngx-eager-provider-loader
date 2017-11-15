@@ -1,3 +1,3 @@
-import { OpaqueToken } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
-export const EAGER_PROVIDER = new OpaqueToken('EAGER_PROVIDER');
+export const EAGER_PROVIDER = new InjectionToken<any>('EAGER_PROVIDER');
