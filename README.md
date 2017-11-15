@@ -1,8 +1,8 @@
 [![Build Status](https://api.travis-ci.org/dscheerens/angular-eager-provider-loader.svg?branch=master)](https://travis-ci.org/dscheerens/angular-eager-provider-loader) [![NPM Version](https://img.shields.io/npm/v/angular-eager-provider-loader.svg)](https://www.npmjs.com/package/angular-eager-provider-loader)
 
-# Eager provider / service loader for Angular 2+
+# Eager provider / service loader for Angular 4+
 
-This module for Angular 2+ enables your application to eager load providers if necessary.
+This module for Angular 4+ enables your application to eager load providers if necessary.
 By default Angular loads all providers in a lazy manner, i.e. only whenever they are used by other components or
 services that are instantiated.
 While this is actually a good thing and is desirable for the majority of the cases, sometimes you might have a valid
