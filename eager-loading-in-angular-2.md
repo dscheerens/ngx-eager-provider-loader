@@ -156,7 +156,7 @@ Instead, the `EagerProviderLoaderModule` will take care of this.
 The added benefit of the `EagerProviderLoaderModule` is that it also ensures that the provider is only instantiated once when used in combination with lazy module loading.
 Lazy module loading can cause problems if you use the constructor method that was outlined in the previous section, since it then loads the provider for every visit of the route that is associated with the lazy loaded module.
 
-I have published the module as an NPM package called [angular-eager-provider-loader](https://www.npmjs.com/package/angular-eager-provider-loader) so you can use it in your own application.
+I have published the module as an NPM package called [ngx-eager-provider-loader](https://www.npmjs.com/package/ngx-eager-provider-loader) so you can use it in your own application.
 Documentation is available as well.
 
 Summary
@@ -175,5 +175,5 @@ Because of the first trait, lazy loading prevents such classes from being loaded
 The trick to solve this problem is to force them to be loaded by making these classes a dependency of another class that gets loaded via the DI framework on application startup.
 As shown, this can be done by adding them to the constructor of classes with the `@NgModule` decorator, which is the most logical place to define these dependencies.
 
-To make eager loading easier to setup and more robust when combined with lazy loaded modules, I create the [angular-eager-provider-loader](https://github.com/dscheerens/angular-eager-provider-loader) module for Angular 2 (and beyond).
+To make eager loading easier to setup and more robust when combined with lazy loaded modules, I create the [ngx-eager-provider-loader](https://github.com/dscheerens/ngx-eager-provider-loader) module for Angular 2 (and beyond).
 The module is published as an NPM package so you can use it within your own application if you also have a need for eager loading.

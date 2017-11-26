@@ -1,6 +1,4 @@
-[![Build Status](https://api.travis-ci.org/dscheerens/angular-eager-provider-loader.svg?branch=master)](https://travis-ci.org/dscheerens/angular-eager-provider-loader) [![NPM Version](https://img.shields.io/npm/v/angular-eager-provider-loader.svg)](https://www.npmjs.com/package/angular-eager-provider-loader)
-
-> **Imporant:** This package has been renamed to `ngx-eager-provider-loader`!
+[![Build Status](https://api.travis-ci.org/dscheerens/angular-eager-provider-loader.svg?branch=master)](https://travis-ci.org/dscheerens/angular-eager-provider-loader) [![NPM Version](https://img.shields.io/npm/v/ngx-eager-provider-loader.svg)](https://www.npmjs.com/package/ngx-eager-provider-loader)
 
 # Eager provider / service loader for Angular 4+
 
@@ -19,30 +17,30 @@ To use this module in your application, you first have to install the NPM packag
 command:
 
 ```
-npm install angular-eager-provider-loader --save
+npm install ngx-eager-provider-loader --save
 ```
 
-When installed, this package provides an UMD bundle (`bundles/angular-eager-provider-loader.umd.js`), that can be
+When installed, this package provides an UMD bundle (`bundles/ngx-eager-provider-loader.umd.js`), that can be
 referenced from the module loader used by your application.
 For example when using [SystemJS](https://github.com/systemjs/systemjs/), add the following entries to the config file:
 
 To the `map` option:
 ```
-'angular-eager-provider-loader': 'node_modules/angular-eager-provider-loader/bundles/'
+'ngx-eager-provider-loader': 'node_modules/ngx-eager-provider-loader/bundles/'
 ```
 
 To the `packages` option:
 ```
-'angular-eager-provider-loader': {
-    main: 'angular-eager-provider-loader.umd.js',
+'ngx-eager-provider-loader': {
+    main: 'ngx-eager-provider-loader.umd.js',
     defaultExtension: 'js'
 }
 ```
 
 In addition to the UMD bundle, the package is also provided in ESM module format.
 This format is more convenient to use when you want to make use of tree shaking.
-The ESM bundle is provided in both ES5 (`bundles/angular-eager-provider-loader.es5.js`) and ES6
-(`bundles/angular-eager-provider-loader.js`).
+The ESM bundle is provided in both ES5 (`bundles/ngx-eager-provider-loader.es5.js`) and ES6
+(`bundles/ngx-eager-provider-loader.js`).
 
 ## Usage
 
@@ -55,7 +53,7 @@ eagerly load a provider that is defined in another module which you cannot modif
 Once you've found the module in which the provider should be loaded, import the `EagerProviderLoaderModule`:
 
 ```TypeScript
-import { EagerProviderLoaderModule } from 'angular-eager-provider-loader';
+import { EagerProviderLoaderModule } from 'ngx-eager-provider-loader';
 
 @NgModule({
     imports: [ EagerProviderLoaderModule ]
@@ -95,7 +93,7 @@ import {
     eagerProviderRegistration,
     eagerProvider,
     eagerProviders,
-} from 'angular-eager-provider-loader';
+} from 'ngx-eager-provider-loader';
 
 @NgModule({
     imports: [
@@ -134,7 +132,7 @@ With this token you can register a provider for eager loading.
 This is illustrated for the `UserService` in the following example:
 
 ```TypeScript
-import { EagerProviderLoaderModule, EAGER_PROVIDER } from 'angular-eager-provider-loader';
+import { EagerProviderLoaderModule, EAGER_PROVIDER } from 'ngx-eager-provider-loader';
 
 import { UserService } from './shared/user.service';
 

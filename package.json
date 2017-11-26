@@ -1,11 +1,11 @@
 {
-  "name": "angular-eager-provider-loader",
+  "name": "ngx-eager-provider-loader",
   "version": "3.0.1",
   "description": "Eager provider / service loader for Angular 2+",
-  "homepage": "https://github.com/dscheerens/angular-eager-provider-loader",
-  "main": "./bundles/angular-eager-provider-loader.umd.js",
-  "module": "./bundles/angular-eager-provider-loader.es5.js",
-  "es2015": "./bundles/angular-eager-provider-loader.js",
+  "homepage": "https://github.com/dscheerens/ngx-eager-provider-loader",
+  "main": "./bundles/ngx-eager-provider-loader.umd.js",
+  "module": "./bundles/ngx-eager-provider-loader.es5.js",
+  "es2015": "./bundles/ngx-eager-provider-loader.js",
   "scripts": {
     "clean": "rimraf build",
     "build": "gulp",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/dscheerens/angular-eager-provider-loader.git"
+    "url": "git://github.com/dscheerens/ngx-eager-provider-loader.git"
   },
   "keywords": [
     "angular",
