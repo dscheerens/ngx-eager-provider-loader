@@ -1,5 +1,7 @@
 [![Build Status](https://api.travis-ci.org/dscheerens/angular-eager-provider-loader.svg?branch=master)](https://travis-ci.org/dscheerens/angular-eager-provider-loader) [![NPM Version](https://img.shields.io/npm/v/angular-eager-provider-loader.svg)](https://www.npmjs.com/package/angular-eager-provider-loader)
 
+> **Imporant:** This package has been renamed to `ngx-eager-provider-loader`!
+
 # Eager provider / service loader for Angular 4+
 
 This module for Angular 4+ enables your application to eager load providers if necessary.
@@ -9,7 +11,7 @@ While this is actually a good thing and is desirable for the majority of the cas
 reason to have your provider(s) loaded directly.
 This is the case in particular for providers that play an active role in your application, but are never referenced by
 other components or providers.
-For more information when this is useful and the rationale for this package see the following article: [Eager loading in Angular 2](https://github.com/dscheerens/angular-eager-provider-loader/blob/master/eager-loading-in-angular-2.md)
+For more information when this is useful and the rationale for this package see the following article: [Eager loading in Angular 2](https://github.com/dscheerens/ngx-eager-provider-loader/blob/master/eager-loading-in-angular-2.md)
 
 ## Installation
 
