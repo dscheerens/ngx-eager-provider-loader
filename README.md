@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.org/dscheerens/angular-eager-provider-loader.svg?branch=master)](https://travis-ci.org/dscheerens/angular-eager-provider-loader) [![NPM Version](https://img.shields.io/npm/v/ngx-eager-provider-loader.svg)](https://www.npmjs.com/package/ngx-eager-provider-loader)
+[![Build Status](https://api.travis-ci.org/dscheerens/ngx-eager-provider-loader.svg?branch=master)](https://travis-ci.org/dscheerens/ngx-eager-provider-loader) [![NPM Version](https://img.shields.io/npm/v/ngx-eager-provider-loader.svg)](https://www.npmjs.com/package/ngx-eager-provider-loader)
 
 # Eager provider / service loader for Angular 4+
 
