@@ -1,6 +1,6 @@
 {
   "name": "ngx-eager-provider-loader",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Eager provider / service loader for Angular 2+",
   "homepage": "https://github.com/dscheerens/ngx-eager-provider-loader",
   "main": "./bundles/ngx-eager-provider-loader.umd.js",
