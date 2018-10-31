@@ -1,5 +1,10 @@
 [![Build Status](https://api.travis-ci.org/dscheerens/ngx-eager-provider-loader.svg?branch=master)](https://travis-ci.org/dscheerens/ngx-eager-provider-loader) [![NPM Version](https://img.shields.io/npm/v/ngx-eager-provider-loader.svg)](https://www.npmjs.com/package/ngx-eager-provider-loader)
 
+> **IMPORTANT: this package has been merged into [`ngx-inject`](https://github.com/dscheerens/ngx-inject).**
+> **Consequently, the `ngx-eager-provider-loader` package is deprecated: it will not receive any updates!**
+> **It is therefore recommended to upgrade to `ngx-inject`.**
+> **That package offers an improved API for eager loading and has better support for Angular's AoT compiler.**
+
 # Eager provider / service loader for Angular 4+
 
 This module for Angular 4+ enables your application to eager load providers if necessary.
